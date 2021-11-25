@@ -1,38 +1,45 @@
-## EasyFloat：Android悬浮窗框架
+## EasyFloat：Android 悬浮窗框架
+
 [![](https://jitpack.io/v/princekin-f/EasyFloat.svg)](https://jitpack.io/#princekin-f/EasyFloat)
 [![License](https://img.shields.io/badge/License%20-Apache%202-337ab7.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 > [EasyFloat：浮窗从未如此简单](https://www.jianshu.com/p/7d1a7c82094a)
 
+## 不要手 jian 删除这个仓库了！
+
 ## 特点功能：
+
 - **支持单页面浮窗，无需权限申请**
 - **支持全局浮窗、应用前台浮窗，需要授权悬浮窗权限**
 - **自动权限检测、自动跳转浮窗权限管理页、自动处理授权结果**
 - **支持系统浮窗的页面过滤**
 - **支持拖拽，支持各种状态的回调**
 - **支持默认位置的设定，支持对齐方式和偏移量的设定**
-- **支持创建多个单页面浮窗、多个系统浮窗，Tag进行区分**
+- **支持创建多个单页面浮窗、多个系统浮窗，Tag 进行区分**
 - **支持出入动画的设定，有默认动画，可自行替换（策略模式）**
-- **使用简单、链式调用、可轻松修改浮窗View**
-- **支持Kotlin DSL，可按需回调状态，摆脱Java的繁琐**
+- **使用简单、链式调用、可轻松修改浮窗 View**
+- **支持 Kotlin DSL，可按需回调状态，摆脱 Java 的繁琐**
 - **支持状态栏沉浸，侧滑打开、拖拽关闭**
 - **支持解锁更多姿势，如：拖拽缩放、通知弹窗...**
 
-|权限申请|系统浮窗|前台和过滤|
-|:---:|:---:|:---:|
-|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7.gif)|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E7%B3%BB%E7%BB%9F%E6%B5%AE%E7%AA%97.gif)|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E6%B5%AE%E7%AA%97%E7%BC%A9%E6%94%BE.gif)|
+|                                                 权限申请                                                  |                                                 系统浮窗                                                  |                                                前台和过滤                                                 |
+| :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
+| ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E6%9D%83%E9%99%90%E7%94%B3%E8%AF%B7.gif) | ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E7%B3%BB%E7%BB%9F%E6%B5%AE%E7%AA%97.gif) | ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/%E6%B5%AE%E7%AA%97%E7%BC%A9%E6%94%BE.gif) |
 
-|状态回调|拖拽边界|拓展使用|
-|:---:|:---:|:---:|
-|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/Callbacks.gif)|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/BoarderAndSlide.gif)|![](https://github.com/princekin-f/EasyFloat/blob/master/readme/DragUtils.gif)|
+|                                    状态回调                                    |                                       拖拽边界                                       |                                    拓展使用                                    |
+| :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/Callbacks.gif) | ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/BoarderAndSlide.gif) | ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/DragUtils.gif) |
 
 ## 下载体验：
-- [直接下载测试APK](http://fir.zsc7454.cn/qgp2)，或者扫码下载：
+
+- [直接下载测试 APK](http://fir.zsc7454.cn/qgp2)，或者扫码下载：
 
 ![](https://github.com/princekin-f/EasyFloat/blob/master/readme/downloadImage.png)
 
 ## 关于集成：
+
 - **在项目的根目录的`build.gradle`添加：**
+
 ```
 allprojects {
     repositories {
@@ -41,7 +48,9 @@ allprojects {
     }
 }
 ```
+
 - **在应用模块的`build.gradle`添加：**
+
 ```
 dependencies {
     implementation 'com.github.princekin-f:EasyFloat:2.0.3'
@@ -54,26 +63,31 @@ dependencies {
     implementation 'com.github.princekin-f:EasyFloat:1.3.4'
 }
 ```
+
 [老版本 v1.3.4 使用文档](https://github.com/princekin-f/EasyFloat/blob/master/readme/README_1.3.4.md)
 
-## 一行代码搞定Android浮窗，浮窗从未如此简单：
+## 一行代码搞定 Android 浮窗，浮窗从未如此简单：
+
 ```
 EasyFloat.with(this).setLayout(R.layout.float_test).show()
 ```
 
 ## 关于初始化：
-> 2.0.0开始，无需初始化
 
+> 2.0.0 开始，无需初始化
 
 ## 关于权限声明：
+
 - 权限声明为非必须；
 - **当使用到系统浮窗（`ShowPattern.ALL_TIME`、`ShowPattern.FOREGROUND`、`ShowPattern.BACKROUND`）；**
 - 需要在`AndroidManifest.xml`进行权限声明。
+
 ```
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 ```
 
 ## 完整使用示例：
+
 ```
 EasyFloat.with(this)
     // 设置浮窗xml布局文件/自定义View，并可设置详细信息
@@ -119,7 +133,7 @@ EasyFloat.with(this)
     .show()
 ```
 
-**在Java中使用Kotlin DSL不是很方便，状态回调还有一种常规的接口方式：**
+**在 Java 中使用 Kotlin DSL 不是很方便，状态回调还有一种常规的接口方式：**
 
 ```
 .registerCallbacks(new OnFloatCallbacks() {
@@ -128,9 +142,10 @@ EasyFloat.with(this)
 })
 ```
 
-如果想要在Java是使用Kotlin DSL，可以参考Demo。
+如果想要在 Java 是使用 Kotlin DSL，可以参考 Demo。
 
 ### 悬浮窗权限的检测、申请：
+
 - **无需主动进行权限申请，创建结果、申请结果可在`OnFloatCallbacks`的`createdResult`获取。**
 
 ```
@@ -141,7 +156,8 @@ PermissionUtils.checkPermission(this)
 PermissionUtils.requestPermission(this，OnPermissionResult)
 ```
 
-### 浮窗的相关API：
+### 浮窗的相关 API：
+
 ```
 // 关闭浮窗，force为强制关闭，有退出动画也不执行
 dismiss(tag: String? = null, force: Boolean = false)
@@ -181,10 +197,11 @@ removeFilters(tag: String? = null, vararg clazz: Class<*>)
 clearFilters(tag: String? = null)
 
 ```
-**PS：`? = null` 代表可选参数，不填也行，默认值为null。**
 
+**PS：`? = null` 代表可选参数，不填也行，默认值为 null。**
 
 ## 拖拽关闭、侧滑创建：
+
 ```
 // 在拖拽回调中，注册拖拽关闭
 drag { view, motionEvent ->
@@ -213,19 +230,22 @@ DragUtils.registerSwipeAdd(ev, object : OnTouchRangeListener {
 })
 ```
 
-
 ## 关于混淆：
+
 > 自带混淆规则，正常情况下无需手动导入。
 
 ## 关于感谢：
+
 - **权限适配：[FloatWindowPermission](https://github.com/zhaozepeng/FloatWindowPermission)**
 
 ## 关于更新：
+
 - [查看版本更新日志](https://github.com/princekin-f/EasyFloat/blob/master/UpdateDoc.md)
 
 ## 交流和激励：
-- **为了大家更好的交流和反馈，我们创建了QQ群：`818756969`**
-- 如果该库对你提供了帮助，你可以小小的赏赞一下作者，同样作者也会非常感谢你！我们一起众筹云测😘
+
+- **为了大家更好的交流和反馈，我们创建了 QQ 群：`818756969`**
+- 如果该库对你提供了帮助，你可以小小的赏赞一下作者，同样作者也会非常感谢你！我们一起众筹云测 😘
 
 <div align="center">
 <img src="https://github.com/princekin-f/EasyFloat/blob/master/readme/EasyFloatGroup.jpeg"  width="266">
@@ -233,9 +253,7 @@ DragUtils.registerSwipeAdd(ev, object : OnTouchRangeListener {
 <img src="https://github.com/princekin-f/EasyFloat/blob/master/readme/WeChatPay.jpeg" width="266" >
 </div>
 
-
-License
--------
+## License
 
     Copyright 2019 Liu Zhenfeng.
 
