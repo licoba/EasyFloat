@@ -99,6 +99,27 @@ class EasyFloat {
         fun updateFloat(tag: String? = null, x: Int = -1, y: Int = -1) =
             FloatingWindowManager.getHelper(tag)?.updateFloat(x, y)
 
+
+        /**
+         * 更新浮窗坐标，以及大小
+         * @param tag 浮窗标签
+         * @param x 更新后的X轴坐标
+         * @param y 更新后的Y轴坐标
+         * @param width 更新后的浮窗width
+         * @param height 更新后的浮窗height
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun updateFloatPositionSize(
+            tag: String? = null,
+            x: Int = -1,
+            y: Int = -1,
+            width: Int = -1,
+            height: Int = -1
+        ) =
+            FloatingWindowManager.getHelper(tag)?.updateFloatPositionSize(x, y, width, height)
+
+
         // 以下几个方法为：系统浮窗过滤页面的添加、移除、清空
         /**
          * 为当前浮窗过滤，设置需要过滤的Activity

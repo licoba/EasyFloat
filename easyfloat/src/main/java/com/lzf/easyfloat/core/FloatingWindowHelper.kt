@@ -402,4 +402,23 @@ internal class FloatingWindowHelper(val context: Context, var config: FloatConfi
             }
         }
     }
+
+
+    /**
+     * 更新浮窗坐标和大小
+     */
+    fun updateFloatPositionSize(x: Int, y: Int, width: Int, height: Int) {
+        frameLayout?.let {
+            if (x == -1 && y == -1) {
+                // 未指定具体坐标，执行吸附动画
+                it.postDelayed({ touchUtils.updateFloat(it, params, windowManager) }, 200)
+            } else {
+                params.x = x
+                params.y = y
+                params.width = width;
+                // params.width = width; // 暂时不更新高度
+                windowManager.updateViewLayout(it, params)
+            }
+        }
+    }
 }
